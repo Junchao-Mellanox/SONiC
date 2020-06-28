@@ -310,10 +310,4 @@ See open question 2 for adding configuration CLIs.
 
 ## 7. Open Questions
 
-1. How to determine the SONiC system is in boot up stage? The current design is to compare the system up time with a "boot_timeout" value. The system up time is got from "cat /proc/uptime". The default "boot_timeout" is 300 seconds and can be configured by configuration. System health service will not do any check until SONiC system finish booting.
-
-```json
-{
-  "boot_timeout": 300
-}
-```
+1. How to determine the SONiC system is in boot up stage? The current design is to read the "with start delay" configuration for monit service from /etc/monit/monitrc, and compare monit start delay with the system up time. The system up time is got from "cat /proc/uptime". The default timeout is 300 seconds if any exception happens. System health service will not do any check until SONiC system finish booting.
