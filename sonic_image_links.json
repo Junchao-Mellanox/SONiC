@@ -26,15 +26,15 @@
  },
 "sonic-innovium.bin": {
   "url": "null",
-  "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=44926&view=results",
-  "build": "44926",
-  "date": "2021-10-21T00:00:04.0049314Z"
+  "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=44932&view=results",
+  "build": "44932",
+  "date": "2021-10-21T00:30:21.7502743Z"
  },
 "sonic-innovium-dbg.bin": {
   "url": "null",
-  "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=44926&view=results",
-  "build": "44926",
-  "date": "2021-10-21T00:00:04.0049314Z"
+  "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=44932&view=results",
+  "build": "44932",
+  "date": "2021-10-21T00:30:21.7502743Z"
  },
 "sonic-barefoot.bin": {
   "url": "https://artprodcus3.artifacts.visualstudio.com/Af91412a5-a906-4990-9d7c-f697b81fc04d/be1b070f-be15-4154-aade-b1d3bfb17054/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL21zc29uaWMvcHJvamVjdElkL2JlMWIwNzBmLWJlMTUtNDE1NC1hYWRlLWIxZDNiZmIxNzA1NC9idWlsZElkLzQ0Nzk4L2FydGlmYWN0TmFtZS9zb25pYy1idWlsZGltYWdlLmJhcmVmb2900/content?format=file&subpath=/target/sonic-barefoot.bin",
@@ -93,7 +93,7 @@
   "date": "2021-10-16T08:00:01.2737022Z"
  },
 "sonic-mellanox.bin": {
-  "url": "https://artprodcus3.artifacts.visualstudio.com/Af91412a5-a906-4990-9d7c-f697b81fc04d/be1b070f-be15-4154-aade-b1d3bfb17054/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL21zc29uaWMvcHJvamVjdElkL2JlMWIwNzBmLWJlMTUtNDE1NC1hYWRlLWIxZDNiZmIxNzA1NC9idWlsZElkLzQzOTE3L2FydGlmYWN0TmFtZS9zb25pYy1idWlsZGltYWdlLm1lbGxhbm940/content?format=file&subpath=/target/sonic-mellanox.bin",
+  "url": "",
   "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=43917&view=results",
   "build": "43917",
   "date": "2021-10-16T08:00:01.8204302Z"
@@ -117,7 +117,7 @@
   "date": "2021-10-21T00:00:01.8680598Z"
  },
 "sonic-barefoot.bin": {
-  "url": "https://artprodcus3.artifacts.visualstudio.com/Af91412a5-a906-4990-9d7c-f697b81fc04d/be1b070f-be15-4154-aade-b1d3bfb17054/_apis/artifact/cGlwZWxpbmVhcnRpZmFjdDovL21zc29uaWMvcHJvamVjdElkL2JlMWIwNzBmLWJlMTUtNDE1NC1hYWRlLWIxZDNiZmIxNzA1NC9idWlsZElkLzQzNzMxL2FydGlmYWN0TmFtZS9zb25pYy1idWlsZGltYWdlLmJhcmVmb2900/content?format=file&subpath=/target/sonic-barefoot.bin",
+  "url": "",
   "build-url": "https://dev.azure.com/mssonic/build/_build/results?buildId=43731&view=results",
   "build": "43731",
   "date": "2021-10-15T08:00:09.3201042Z"
