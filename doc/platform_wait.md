@@ -18,20 +18,20 @@ N/A
 
 1. Get file `/run/hw-management/config/sfp_counter` value as sfp_counter
 2. Get file `/run/hw-management/config/module_counter` value as module_counter
-3. if module_counter and sfp_counter value are not 0 and module_counter equals to sfp_counter, wait finish; otherwise, repeat step 1~3 until timeout 300 seconds reached
+3. If module_counter and sfp_counter value are not 0 and module_counter equals to sfp_counter, wait finish; otherwise, repeat step 1~3 until timeout 300 seconds reached
 
 Recently, there are a few new features:
 
 - SDK sysfs feature makes PMON daemons depends on SDK sysfs nodes
-- CMIS host management feature makes PMON daemons depends on different SDK sysfs nodes based on whether the feature is enabled
+- Software control module management feature makes PMON daemons depends on different SDK sysfs nodes based on whether the feature is enabled
 - Multi-ASIC feature makes hw-management deprecate file `/run/hw-management/config/module_counter` so that SONiC cannot reply on it anymore
 
 Based on the above, the logic of `platform_wait` must be adjusted to conform with those changes.
 
 ### Requirements
 
-1. `platform_wait` shall wait for hw-management related sysfs nodes ready
-2. `platform_wait` shall wait for SDK related sysfs nodes ready
+1. `platform_wait` shall wait for hw-management related sysfs nodes ready (e.g. PSU related sysfs)
+2. `platform_wait` shall wait for SDK related sysfs nodes ready (e.g. Module related sysfs)
 
 ### Architecture Design
 
@@ -46,12 +46,11 @@ No architecture change required.
 
 #### wait_hw_management
 
-When CMIS host management is disabled, `wait_hw_management` shall do following:
+When software control module management is disabled, `wait_hw_management` shall do following:
 
 1. Wait for /var/run/hw-management/config/asics_init_done to be value 1
-2. Wait for /var/run/hw-management/config/asic_chipup_completed to be equal to /var/run/hw-management/config/asic_num
 
-When CMIS host management is enabled, minimal driver is not loaded so that asics_init_done and asic_chipup_completed are not available. There is no flag to indicate hw-management readiness in such mode. As SDK is usually started later than hw-management, `platform_wait` shall rely on `wait_sdk` only, and `wait_hw_management` can be ignored in such mode.
+When Software control module management is enabled, minimal driver is not loaded so that asics_init_done and asic_chipup_completed are not available. There is no flag to indicate hw-management readiness in such mode. As SDK is usually started later than hw-management, `platform_wait` shall rely on `wait_sdk` only, and `wait_hw_management` can be ignored in such mode.
 
 #### wait_sdk
 
@@ -63,7 +62,7 @@ SDK team claimed that a SDK sysfs node is ready to use when it is created, so th
 2. For each module, check sysfs nodes existence. If all sysfs nodes exist, the module is ready.
 3. If all modules are ready, all SDK dependencies have been resolved
 
-When CMIS host management is enabled, following sysfs nodes shall be checked:
+When Software control module management is enabled, following sysfs nodes shall be checked:
 
 - /sys/module/sx_core/asic0/temperature/input
 - /sys/module/sx_core/asic0/module{X}/control
@@ -76,7 +75,7 @@ When CMIS host management is enabled, following sysfs nodes shall be checked:
 - /sys/module/sx_core/asic0/module{X}/power_on
 - /sys/module/sx_core/asic0/module{X}/temperature/input
 
-When CMIS host management is disabled, following sysfs nodes shall be checked:
+When Software control module management is disabled, following sysfs nodes shall be checked:
 
 - /sys/module/sx_core/asic0/module{X}/power_mode
 - /sys/module/sx_core/asic0/module{X}/power_mode_policy
